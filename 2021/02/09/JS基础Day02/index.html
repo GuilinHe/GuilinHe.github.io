@@ -1,0 +1,626 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.new.png">
+  <link rel="icon" type="image/png" href="/img/avatar.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="学而时习之，不亦说乎！">
+  <meta name="author" content="Alisa">
+  <meta name="keywords" content="学习">
+  <title>JavaScript基础第02天 - Heguilin的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"guilinhe.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Heguilin</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="JavaScript基础第02天">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-09 18:05" pubdate>
+        2021年2月9日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JavaScript基础第02天</h1>
+            
+            <div class="markdown-body">
+              <h1 id="JavaScript基础第02天"><a href="#JavaScript基础第02天" class="headerlink" title="JavaScript基础第02天"></a>JavaScript基础第02天</h1><h2 id="1-运算符（操作符）"><a href="#1-运算符（操作符）" class="headerlink" title="1 - 运算符（操作符）"></a>1 - 运算符（操作符）</h2><h3 id="1-1-运算符的分类"><a href="#1-1-运算符的分类" class="headerlink" title="1.1 运算符的分类"></a>1.1 运算符的分类</h3><p><strong>运算符</strong>（operator）也被称为操作符，是用于实现赋值、比较和执行算数运算等功能的符号。</p>
+<pre><code>JavaScript中常用的运算符有：
+</code></pre>
+<ul>
+<li> 算数运算符</li>
+<li> 递增和递减运算符</li>
+<li> 比较运算符</li>
+<li> 逻辑运算符</li>
+<li> 赋值运算符</li>
+</ul>
+<h3 id="1-2-算数运算符"><a href="#1-2-算数运算符" class="headerlink" title="1.2 算数运算符"></a>1.2 算数运算符</h3><ul>
+<li><p>算术运算符概述</p>
+<p>概念：算术运算使用的符号，用于执行两个变量或值的算术运算。</p>
+<p><img src="images%5C%E5%9B%BE%E7%89%871.png" srcset="/img/loading.gif"></p>
+</li>
+<li><p>浮点数的精度问题</p>
+<p>浮点数值的最高精度是 17 位小数，但在进行算术计算时其精确度远远不如整数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> result = <span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span>;    <span class="hljs-comment">// 结果不是 0.3，而是：0.30000000000000004</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-number">0.07</span> * <span class="hljs-number">100</span>);   <span class="hljs-comment">// 结果不是 7，  而是：7.000000000000001</span><br></code></pre></td></tr></table></figure>
+<p>所以：不要直接判断两个浮点数是否相等 ! </p>
+</li>
+<li><p>表达式和返回值</p>
+<p>表达式：是由数字、运算符、变量等以能求得数值的有意义排列方法所得的组合</p>
+<p>简单理解：是由数字、运算符、变量等组成的式子</p>
+<p>表达式最终都会有一个结果，返回给开发者，称为返回值</p>
+</li>
+</ul>
+<h3 id="1-3-递增和递减运算符"><a href="#1-3-递增和递减运算符" class="headerlink" title="1.3 递增和递减运算符"></a>1.3 递增和递减运算符</h3><ul>
+<li><p>递增和递减运算符概述</p>
+<pre><code>如果需要反复给数字变量添加或减去1，可以使用递增（++）和递减（ -- ）运算符来完成。
+
+在 JavaScript 中，递增（++）和递减（ -- ）既可以放在变量前面，也可以放在变量后面。放在变量前面时，我们可以称为前置递增（递减）运算符，放在变量后面时，我们可以称为后置递增（递减）运算符。
+  
+注意：递增和递减运算符必须和变量配合使用。 
+</code></pre>
+</li>
+<li><p>递增运算符</p>
+<ul>
+<li><p>前置递增运算符</p>
+<p>  ++num 前置递增，就是自加1，类似于 num =  num + 1，但是 ++num 写起来更简单。</p>
+<p>  使用口诀：先自加，后返回值</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span>  num = <span class="hljs-number">10</span>;<br>alert(++num + <span class="hljs-number">10</span>);   <span class="hljs-comment">// 21</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li><p>后置递增运算符</p>
+<p>num++ 后置递增，就是自加1，类似于 num =  num + 1 ，但是 num++ 写起来更简单。</p>
+<p>使用口诀：先返回原值，后自加 </p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span>  num = <span class="hljs-number">10</span>;<br>alert(<span class="hljs-number">10</span> + num++);  <span class="hljs-comment">// 20</span><br></code></pre></td></tr></table></figure>
+<h3 id="1-4-比较运算符"><a href="#1-4-比较运算符" class="headerlink" title="1.4 比较运算符"></a>1.4 比较运算符</h3></li>
+<li><p>比较运算符概述</p>
+<pre><code>概念：比较运算符（关系运算符）是两个数据进行比较时所使用的运算符，比较运算后，会返回一个布尔值（true / false）作为比较运算的结果。
+</code></pre>
+<p><img src="images%5C%E5%9B%BE%E7%89%872.png" srcset="/img/loading.gif"></p>
+</li>
+<li><p>等号比较</p>
+<p><img src="images%5C%E5%9B%BE%E7%89%873.png" srcset="/img/loading.gif"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-number">18</span> == <span class="hljs-string">&#x27;18&#x27;</span>);<br><span class="hljs-built_in">console</span>.log(<span class="hljs-number">18</span> === <span class="hljs-string">&#x27;18&#x27;</span>); <br></code></pre></td></tr></table></figure>
+<h3 id="1-5-逻辑运算符"><a href="#1-5-逻辑运算符" class="headerlink" title="1.5 逻辑运算符"></a>1.5 逻辑运算符</h3></li>
+<li><p>逻辑运算符概述</p>
+<pre><code>概念：逻辑运算符是用来进行布尔值运算的运算符，其返回值也是布尔值。后面开发中经常用于多个条件的判断
+</code></pre>
+<p><img src="images%5C%E5%9B%BE%E7%89%874.png" srcset="/img/loading.gif"></p>
+</li>
+<li><p>逻辑与&amp;&amp;</p>
+<p>两边都是 true才返回 true，否则返回 false</p>
+<p>​                <img src="images\图片5.png" srcset="/img/loading.gif" alt=""></p>
+<p>​                <img src="images\图片6.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>逻辑或 ||</p>
+<p>两边都是 true才返回 true，否则返回 false</p>
+<p>​                <img src="images\图片7.png" srcset="/img/loading.gif" alt=""></p>
+<p>​                <img src="images\图片8.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>逻辑非 ！</p>
+<p>逻辑非（!）也叫作取反符，用来取一个布尔值相反的值，如 true 的相反值是 false</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> isOk = !<span class="hljs-literal">true</span>;<br><span class="hljs-built_in">console</span>.log(isOk);  <span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure></li>
+<li><p>短路运算（逻辑中断）</p>
+<p> 短路运算的原理：当有多个表达式（值）时,左边的表达式值可以确定结果时,就不再继续运算右边的表达式的值;</p>
+<ul>
+<li><p>逻辑与</p>
+<p>  语法： 表达式1 &amp;&amp; 表达式2</p>
+<pre><code>  - 如果第一个表达式的值为真，则返回表达式2
+  
+  - 如果第一个表达式的值为假，则返回表达式1
+</code></pre>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log( <span class="hljs-number">123</span> &amp;&amp; <span class="hljs-number">456</span> );        <span class="hljs-comment">// 456</span><br><span class="hljs-built_in">console</span>.log( <span class="hljs-number">0</span> &amp;&amp; <span class="hljs-number">456</span> );          <span class="hljs-comment">// 0</span><br><span class="hljs-built_in">console</span>.log( <span class="hljs-number">123</span> &amp;&amp; <span class="hljs-number">456</span>&amp;&amp; <span class="hljs-number">789</span> );  <span class="hljs-comment">// 789</span><br></code></pre></td></tr></table></figure></li>
+<li><p>逻辑或</p>
+<p> 语法： 表达式1 || 表达式2</p>
+<pre><code> - 如果第一个表达式的值为真，则返回表达式1
+ 
+ - 如果第一个表达式的值为假，则返回表达式2
+</code></pre>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log( <span class="hljs-number">123</span> || <span class="hljs-number">456</span> );         <span class="hljs-comment">//  123</span><br><span class="hljs-built_in">console</span>.log( <span class="hljs-number">0</span> ||  <span class="hljs-number">456</span> );          <span class="hljs-comment">//  456</span><br><span class="hljs-built_in">console</span>.log( <span class="hljs-number">123</span> || <span class="hljs-number">456</span> || <span class="hljs-number">789</span> );  <span class="hljs-comment">//  123</span><br></code></pre></td></tr></table></figure>
+<h3 id="1-6-赋值运算符"><a href="#1-6-赋值运算符" class="headerlink" title="1.6 赋值运算符"></a>1.6 赋值运算符</h3><p>概念：用来把数据赋值给变量的运算符。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="images%5C%E5%9B%BE%E7%89%879.png" srcset="/img/loading.gif"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> age = <span class="hljs-number">10</span>;<br>age += <span class="hljs-number">5</span>;  <span class="hljs-comment">// 相当于 age = age + 5;</span><br>age -= <span class="hljs-number">5</span>;  <span class="hljs-comment">// 相当于 age = age - 5;</span><br>age *= <span class="hljs-number">10</span>; <span class="hljs-comment">// 相当于 age = age * 10;</span><br></code></pre></td></tr></table></figure>
+<h3 id="1-7-运算符优先级"><a href="#1-7-运算符优先级" class="headerlink" title="1.7 运算符优先级"></a>1.7 运算符优先级</h3><p><img src="images%5C%E5%9B%BE%E7%89%8710.png" srcset="/img/loading.gif"></p>
+<ul>
+<li>一元运算符里面的逻辑非优先级很高</li>
+<li>逻辑与比逻辑或优先级高</li>
+</ul>
+<h2 id="2-流程控制"><a href="#2-流程控制" class="headerlink" title="2 - 流程控制"></a>2 - 流程控制</h2><h3 id="2-1-流程控制概念"><a href="#2-1-流程控制概念" class="headerlink" title="2.1 流程控制概念"></a>2.1 流程控制概念</h3><pre><code>在一个程序执行的过程中，各条代码的执行顺序对程序的结果是有直接影响的。很多时候我们要通过控制代码的执行顺序来实现我们要完成的功能。
+
+简单理解：**流程控制就是来控制代码按照一定结构顺序来执行**
+
+流程控制主要有三种结构，分别是**顺序结构**、**分支结构**和**循环结构**，代表三种代码执行的顺序。
+</code></pre>
+<p><img src="images%5C%E5%9B%BE%E7%89%8711.png" srcset="/img/loading.gif"></p>
+<h3 id="2-2-顺序流程控制"><a href="#2-2-顺序流程控制" class="headerlink" title="2.2 顺序流程控制"></a>2.2 顺序流程控制</h3><p>​    </p>
+<p>​    顺序结构是程序中最简单、最基本的流程控制，它没有特定的语法结构，程序会按照代码的先后顺序，依次执行，程序中大多数的代码都是这样执行的。<br>​                <img src="images\图片12.png" srcset="/img/loading.gif" alt=""></p>
+<h3 id="2-3-分支流程控制"><a href="#2-3-分支流程控制" class="headerlink" title="2.3 分支流程控制"></a>2.3 分支流程控制</h3><ul>
+<li><p>分支结构</p>
+<p>由上到下执行代码的过程中，根据不同的条件，执行不同的路径代码（执行代码多选一的过程），从而得到不同的结果</p>
+<pre><code>            &lt;img src=&quot;images\图片13.png&quot; alt=&quot;&quot;&gt;
+</code></pre>
+<p>  JS 语言提供了两种分支结构语句：if 语句、switch 语句</p>
+</li>
+<li><p>if 语句</p>
+<ul>
+<li>语法结构</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 条件成立执行代码，否则什么也不做</span><br><span class="hljs-keyword">if</span> (条件表达式) &#123;<br>    <span class="hljs-comment">// 条件成立执行的代码语句</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<pre><code>语句可以理解为一个行为，循环语句和分支语句就是典型的语句。一个程序由很多个语句组成，一般情况下，会分割成一个一个的语句。
+</code></pre>
+<ul>
+<li><p>执行流程</p>
+<p><img src="images%5C%E5%9B%BE%E7%89%8714.png" srcset="/img/loading.gif"></p>
+</li>
+</ul>
+</li>
+<li><p>if else语句（双分支语句）</p>
+<ul>
+<li><p>语法结构</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 条件成立  执行 if 里面代码，否则执行else 里面的代码</span><br><span class="hljs-keyword">if</span> (条件表达式) &#123;<br>    <span class="hljs-comment">// [如果] 条件成立执行的代码</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-comment">// [否则] 执行的代码</span><br>&#125;<br><br></code></pre></td></tr></table></figure></li>
+<li><p>执行流程</p>
+<p><img src="images%5C%E5%9B%BE%E7%89%8715.png" srcset="/img/loading.gif"></p>
+</li>
+</ul>
+</li>
+<li><p>if else if 语句(多分支语句)</p>
+<ul>
+<li><p>语法结构</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 适合于检查多重条件。</span><br><span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">1</span>) &#123;<br>    语句<span class="hljs-number">1</span>；<br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">2</span>)  &#123;<br>    语句<span class="hljs-number">2</span>；<br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (条件表达式<span class="hljs-number">3</span>)  &#123;<br>   语句<span class="hljs-number">3</span>；<br> ....<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-comment">// 上述条件都不成立执行此处代码</span><br>&#125;<br><br></code></pre></td></tr></table></figure></li>
+<li><p>执行逻辑</p>
+<p><img src="images%5C%E5%9B%BE%E7%89%8716.png" srcset="/img/loading.gif"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-4-三元表达式"><a href="#2-4-三元表达式" class="headerlink" title="2.4 三元表达式"></a>2.4 三元表达式</h3><ul>
+<li><p>语法结构</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">表达式<span class="hljs-number">1</span> ? 表达式<span class="hljs-number">2</span> : 表达式<span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure></li>
+<li><p>执行思路</p>
+<ul>
+<li>如果表达式1为 true ，则返回表达式2的值，如果表达式1为 false，则返回表达式3的值</li>
+<li>简单理解： 就类似于  if  else （双分支） 的简写</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-5-switch分支流程控制"><a href="#2-5-switch分支流程控制" class="headerlink" title="2.5 switch分支流程控制"></a>2.5 switch分支流程控制</h3><ul>
+<li><p>语法结构</p>
+<pre><code>switch 语句也是多分支语句，它用于基于不同的条件来执行不同的代码。当要针对变量设置一系列的特定值的选项时，就可以使用 switch。
+</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">switch</span>( 表达式 )&#123; <br>    <span class="hljs-keyword">case</span> value1:<br>        <span class="hljs-comment">// 表达式 等于 value1 时要执行的代码</span><br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">case</span> value2:<br>        <span class="hljs-comment">// 表达式 等于 value2 时要执行的代码</span><br>        <span class="hljs-keyword">break</span>;<br>    <span class="hljs-keyword">default</span>:<br>        <span class="hljs-comment">// 表达式 不等于任何一个 value 时要执行的代码</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li><p>switch ：开关 转换  ， case ：小例子   选项</p>
+</li>
+<li><p>关键字 switch 后面括号内可以是表达式或值， 通常是一个变量</p>
+</li>
+<li><p>关键字 case , 后跟一个选项的表达式或值，后面跟一个冒号</p>
+</li>
+<li><p>switch 表达式的值会与结构中的 case 的值做比较 </p>
+</li>
+<li><p>如果存在匹配全等(===) ，则与该 case 关联的代码块会被执行，并在遇到 break 时停止，整个 switch 语句代码执行结束</p>
+</li>
+<li><p>如果所有的 case 的值都和表达式的值不匹配，则执行 default 里的代码</p>
+<p><strong>注意： 执行case 里面的语句时，如果没有break，则继续执行下一个case里面的语句。</strong></p>
+</li>
+</ul>
+</li>
+<li><p>switch 语句和 if else if 语句的区别</p>
+<ul>
+<li>一般情况下，它们两个语句可以相互替换</li>
+<li>switch…case 语句通常处理 case为比较确定值的情况， 而 if…else…语句更加灵活，常用于范围判断(大于、等于某个范围)</li>
+<li>switch 语句进行条件判断后直接执行到程序的条件语句，效率更高。而if…else 语句有几种条件，就得判断多少次。</li>
+<li>当分支比较少时，if… else语句的执行效率比 switch语句高。</li>
+<li>当分支比较多时，switch语句的执行效率比较高，而且结构更清晰。 </li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/09/JS%E5%9F%BA%E7%A1%80Day03/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JavaScript基础第03天笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/09/JS%E5%9F%BA%E7%A1%80Day01/">
+                        <span class="hidden-mobile">JavaScript基础第01天</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
