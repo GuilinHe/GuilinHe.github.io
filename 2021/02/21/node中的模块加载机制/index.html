@@ -17,7 +17,7 @@
   <meta name="description" content="学而时习之，不亦说乎！">
   <meta name="author" content="Alisa">
   <meta name="keywords" content="学习">
-  <title>npm相关命令总结 - Heguilin的博客</title>
+  <title>node中模块的加载机制 - Heguilin的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="npm相关命令总结">
+            <span class="h2" id="subtitle" title="node中模块的加载机制">
               
             </span>
 
@@ -172,7 +172,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-21 19:33" pubdate>
+      <time datetime="2021-02-21 20:26" pubdate>
         2021年2月21日 晚上
       </time>
     </span>
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      346 字
+      502 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      5
        分钟
     </span>
   
@@ -224,26 +224,23 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">npm相关命令总结</h1>
+            <h1 style="display: none">node中模块的加载机制</h1>
             
             <div class="markdown-body">
-              <h1 id="npm相关命令总结"><a href="#npm相关命令总结" class="headerlink" title="npm相关命令总结"></a>npm相关命令总结</h1><h2 id="查看自己电脑上所安装的-npm-包管理工具的版本号"><a href="#查看自己电脑上所安装的-npm-包管理工具的版本号" class="headerlink" title="查看自己电脑上所安装的 npm 包管理工具的版本号"></a>查看自己电脑上所安装的 npm 包管理工具的版本号</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm -v<br></code></pre></td></tr></table></figure>
-<h2 id="安装第三方包"><a href="#安装第三方包" class="headerlink" title="安装第三方包"></a>安装第三方包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">npm install 包名称<br>npm i 包名称@xxx (安装固定版本包)<br>npm i 包名称 (简写形式)<br></code></pre></td></tr></table></figure>
-<h2 id="卸载第三方包"><a href="#卸载第三方包" class="headerlink" title="卸载第三方包"></a>卸载第三方包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm uninstall 包名称<br></code></pre></td></tr></table></figure>
-<h2 id="初始化-package-json文件"><a href="#初始化-package-json文件" class="headerlink" title="初始化 package.json文件"></a>初始化 package.json文件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm init -y<br></code></pre></td></tr></table></figure>
-<h2 id="一次性安装所有包"><a href="#一次性安装所有包" class="headerlink" title="一次性安装所有包"></a>一次性安装所有包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm install <br></code></pre></td></tr></table></figure>
-<h2 id="查看当前的下包镜像源"><a href="#查看当前的下包镜像源" class="headerlink" title="查看当前的下包镜像源"></a>查看当前的下包镜像源</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm config get registry<br></code></pre></td></tr></table></figure>
-<h2 id="将下包镜像源切换为淘宝镜像源"><a href="#将下包镜像源切换为淘宝镜像源" class="headerlink" title="将下包镜像源切换为淘宝镜像源"></a>将下包镜像源切换为淘宝镜像源</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm config set registry=https:<span class="hljs-comment">//registry.npm.taobao.org</span><br></code></pre></td></tr></table></figure>
-<h2 id="检查源有没有更换成功"><a href="#检查源有没有更换成功" class="headerlink" title="检查源有没有更换成功"></a>检查源有没有更换成功</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm config get registry<br></code></pre></td></tr></table></figure>
-<h2 id="全局安装-nrm"><a href="#全局安装-nrm" class="headerlink" title="全局安装 nrm"></a>全局安装 nrm</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm i nrm -g<br></code></pre></td></tr></table></figure>
-<h2 id="查看所有可用的镜像源"><a href="#查看所有可用的镜像源" class="headerlink" title="查看所有可用的镜像源"></a>查看所有可用的镜像源</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">nrm ls<br></code></pre></td></tr></table></figure>
-<h2 id="切换下包镜像源为-taobao"><a href="#切换下包镜像源为-taobao" class="headerlink" title="切换下包镜像源为 taobao"></a>切换下包镜像源为 taobao</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">nrm use taobao<br></code></pre></td></tr></table></figure>
-<h2 id="分类下载包"><a href="#分类下载包" class="headerlink" title="分类下载包"></a>分类下载包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">npm i 包名 -D  开发依赖包(会被记录到 devDependencies)<br>npm i 包名     核心依赖包(会被记录到 dependencies 节点下)<br></code></pre></td></tr></table></figure>
-<h2 id="安装全局包"><a href="#安装全局包" class="headerlink" title="安装全局包"></a>安装全局包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm i 包名 -g<br></code></pre></td></tr></table></figure>
-<h2 id="卸载全局安装的包"><a href="#卸载全局安装的包" class="headerlink" title="卸载全局安装的包"></a>卸载全局安装的包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm uninstall 包名 -g<br></code></pre></td></tr></table></figure>
-<h2 id="一个把-markdown-格式的文档转成-html-格式文件的工具包"><a href="#一个把-markdown-格式的文档转成-html-格式文件的工具包" class="headerlink" title="一个把 markdown 格式的文档转成 html 格式文件的工具包"></a>一个把 markdown 格式的文档转成 html 格式文件的工具包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">npm i -g i5ting_toc  全局安装<br>i5ting_toc -f xxx.md -o  使用全局命令并在浏览器打开转换好的html文件<br></code></pre></td></tr></table></figure>
-<h2 id="登录到npm"><a href="#登录到npm" class="headerlink" title="登录到npm"></a>登录到npm</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm login   需要在下包镜像源为npm下执行命令<br></code></pre></td></tr></table></figure>
-<h2 id="发布自己写的包"><a href="#发布自己写的包" class="headerlink" title="发布自己写的包"></a>发布自己写的包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">npm publish   在包的发布目录下面执行命令<br>npm unpublish 包名称 --force   删除已经发布的包<br></code></pre></td></tr></table></figure>
+              <h1 id="node中模块的加载机制"><a href="#node中模块的加载机制" class="headerlink" title="node中模块的加载机制"></a>node中模块的加载机制</h1><h2 id="1-模块的加载机制"><a href="#1-模块的加载机制" class="headerlink" title="1. 模块的加载机制"></a>1. 模块的加载机制</h2><h3 id="1-1-模块优先从缓存中进行加载"><a href="#1-1-模块优先从缓存中进行加载" class="headerlink" title="1.1 模块优先从缓存中进行加载"></a>1.1 模块优先从缓存中进行加载</h3><p>模块在第一次加载后会被缓存, 如果每次调用 require(‘foo’) 都解析到同一文件，则返回相同的对象,不会导致模块的代码被执行多次</p>
+<h3 id="1-2-缓存的作用"><a href="#1-2-缓存的作用" class="headerlink" title="1.2 缓存的作用"></a>1.2 缓存的作用</h3><p>不论是 node.js 内置的核心模块，用户自定义的模块还是第三方模块，都有对应的缓存策略，提升模块的加载效率</p>
+<h2 id="2-内置模块的加载机制"><a href="#2-内置模块的加载机制" class="headerlink" title="2. 内置模块的加载机制"></a>2. 内置模块的加载机制</h2><h3 id="2-1-核心模块的加载机制"><a href="#2-1-核心模块的加载机制" class="headerlink" title="2.1 核心模块的加载机制"></a>2.1 核心模块的加载机制</h3><p>require() 总是会优先加载核心模块, 比如 require(‘http’) 始终返回内置的 HTTP 模块，即使有同名文件</p>
+<h2 id="3-自定义模块的加载机制"><a href="#3-自定义模块的加载机制" class="headerlink" title="3. 自定义模块的加载机制"></a>3. 自定义模块的加载机制</h2><h3 id="3-1-自定义模块的加载机制"><a href="#3-1-自定义模块的加载机制" class="headerlink" title="3.1 自定义模块的加载机制"></a>3.1 自定义模块的加载机制</h3><p>使用 require() 方法去加载自定义模块，必须指定 ‘/‘、 ‘./‘ 或 ‘../‘ 开头的路径，如果没有这个路径标识，node 会默认把它当作是一个核心模块或来自 node_modules 目录下的第三方模块</p>
+<h3 id="3-2-自定义文件模块"><a href="#3-2-自定义文件模块" class="headerlink" title="3.2 自定义文件模块"></a>3.2 自定义文件模块</h3><p>如果按确切的文件名没有找到模块，则 Node.js 会尝试带上 .js、 .json 或 .node 拓展名再加载</p>
+<h3 id="3-3-自定义目录模块"><a href="#3-3-自定义目录模块" class="headerlink" title="3.3 自定义目录模块"></a>3.3 自定义目录模块</h3><p>当传递一个目录标识符给 require () 方法时, 加载的顺序如下:</p>
+<ol>
+<li><p>在加载的目录下查找 package.json 的文件, 并寻找 main 属性作为 require 的入口</p>
+</li>
+<li><p>上述找不到,  Node.js 将会试图加载目录下的 index.js 或 index.node 文件</p>
+</li>
+</ol>
+<h2 id="4-第三方模块的加载机制"><a href="#4-第三方模块的加载机制" class="headerlink" title="4. 第三方模块的加载机制"></a>4. 第三方模块的加载机制</h2><h3 id="4-1-第三方模块的加载机制"><a href="#4-1-第三方模块的加载机制" class="headerlink" title="4.1 第三方模块的加载机制"></a>4.1 第三方模块的加载机制</h3><p>如果传递给 require() 的模块标识符不是一个核心模块，也没有以 ‘/‘ 、 ‘../‘ 或 ‘./‘ 开头，那么 Node.js 会从当前模块的父目录开始，尝试从它的/node_modules 目录里加载模块。如果还是没有找到，则移动到再上一层父目录，直到文件系统的根目录。</p>
+
             </div>
             <hr>
             <div>
@@ -260,9 +257,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/JS/">JS</a>
-                    
-                      <a class="hover-with-bg" href="/tags/%E8%AF%AD%E8%A8%80/">语言</a>
+                      <a class="hover-with-bg" href="/tags/node/">node</a>
                     
                   </div>
                 
@@ -275,18 +270,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/21/node%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">node中模块的加载机制</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/09/JS%E5%9F%BA%E7%A1%80Day05/">
-                        <span class="hidden-mobile">JavaScript基础第05天笔记</span>
+                      <a href="/2021/02/21/npm%E5%91%BD%E4%BB%A4/">
+                        <span class="hidden-mobile">npm相关命令总结</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

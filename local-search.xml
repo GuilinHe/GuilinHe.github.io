@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>node中模块的加载机制</title>
+    <link href="/2021/02/21/node%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/"/>
+    <url>/2021/02/21/node%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/</url>
+    
+    <content type="html"><![CDATA[<h1 id="node中模块的加载机制"><a href="#node中模块的加载机制" class="headerlink" title="node中模块的加载机制"></a>node中模块的加载机制</h1><h2 id="1-模块的加载机制"><a href="#1-模块的加载机制" class="headerlink" title="1. 模块的加载机制"></a>1. 模块的加载机制</h2><h3 id="1-1-模块优先从缓存中进行加载"><a href="#1-1-模块优先从缓存中进行加载" class="headerlink" title="1.1 模块优先从缓存中进行加载"></a>1.1 模块优先从缓存中进行加载</h3><p>模块在第一次加载后会被缓存, 如果每次调用 require(‘foo’) 都解析到同一文件，则返回相同的对象,不会导致模块的代码被执行多次</p><h3 id="1-2-缓存的作用"><a href="#1-2-缓存的作用" class="headerlink" title="1.2 缓存的作用"></a>1.2 缓存的作用</h3><p>不论是 node.js 内置的核心模块，用户自定义的模块还是第三方模块，都有对应的缓存策略，提升模块的加载效率</p><h2 id="2-内置模块的加载机制"><a href="#2-内置模块的加载机制" class="headerlink" title="2. 内置模块的加载机制"></a>2. 内置模块的加载机制</h2><h3 id="2-1-核心模块的加载机制"><a href="#2-1-核心模块的加载机制" class="headerlink" title="2.1 核心模块的加载机制"></a>2.1 核心模块的加载机制</h3><p>require() 总是会优先加载核心模块, 比如 require(‘http’) 始终返回内置的 HTTP 模块，即使有同名文件</p><h2 id="3-自定义模块的加载机制"><a href="#3-自定义模块的加载机制" class="headerlink" title="3. 自定义模块的加载机制"></a>3. 自定义模块的加载机制</h2><h3 id="3-1-自定义模块的加载机制"><a href="#3-1-自定义模块的加载机制" class="headerlink" title="3.1 自定义模块的加载机制"></a>3.1 自定义模块的加载机制</h3><p>使用 require() 方法去加载自定义模块，必须指定 ‘/‘、 ‘./‘ 或 ‘../‘ 开头的路径，如果没有这个路径标识，node 会默认把它当作是一个核心模块或来自 node_modules 目录下的第三方模块</p><h3 id="3-2-自定义文件模块"><a href="#3-2-自定义文件模块" class="headerlink" title="3.2 自定义文件模块"></a>3.2 自定义文件模块</h3><p>如果按确切的文件名没有找到模块，则 Node.js 会尝试带上 .js、 .json 或 .node 拓展名再加载</p><h3 id="3-3-自定义目录模块"><a href="#3-3-自定义目录模块" class="headerlink" title="3.3 自定义目录模块"></a>3.3 自定义目录模块</h3><p>当传递一个目录标识符给 require () 方法时, 加载的顺序如下:</p><ol><li><p>在加载的目录下查找 package.json 的文件, 并寻找 main 属性作为 require 的入口</p></li><li><p>上述找不到,  Node.js 将会试图加载目录下的 index.js 或 index.node 文件</p></li></ol><h2 id="4-第三方模块的加载机制"><a href="#4-第三方模块的加载机制" class="headerlink" title="4. 第三方模块的加载机制"></a>4. 第三方模块的加载机制</h2><h3 id="4-1-第三方模块的加载机制"><a href="#4-1-第三方模块的加载机制" class="headerlink" title="4.1 第三方模块的加载机制"></a>4.1 第三方模块的加载机制</h3><p>如果传递给 require() 的模块标识符不是一个核心模块，也没有以 ‘/‘ 、 ‘../‘ 或 ‘./‘ 开头，那么 Node.js 会从当前模块的父目录开始，尝试从它的/node_modules 目录里加载模块。如果还是没有找到，则移动到再上一层父目录，直到文件系统的根目录。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>node</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>npm相关命令总结</title>
     <link href="/2021/02/21/npm%E5%91%BD%E4%BB%A4/"/>
     <url>/2021/02/21/npm%E5%91%BD%E4%BB%A4/</url>
