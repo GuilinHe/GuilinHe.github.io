@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>npm相关命令总结</title>
+    <link href="/2021/02/21/npm%E5%91%BD%E4%BB%A4/"/>
+    <url>/2021/02/21/npm%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<h1 id="npm相关命令总结"><a href="#npm相关命令总结" class="headerlink" title="npm相关命令总结"></a>npm相关命令总结</h1><h2 id="查看自己电脑上所安装的-npm-包管理工具的版本号"><a href="#查看自己电脑上所安装的-npm-包管理工具的版本号" class="headerlink" title="查看自己电脑上所安装的 npm 包管理工具的版本号"></a>查看自己电脑上所安装的 npm 包管理工具的版本号</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm -v<br></code></pre></td></tr></table></figure><h2 id="安装第三方包"><a href="#安装第三方包" class="headerlink" title="安装第三方包"></a>安装第三方包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">npm install 包名称<br>npm i 包名称@xxx (安装固定版本包)<br>npm i 包名称 (简写形式)<br></code></pre></td></tr></table></figure><h2 id="卸载第三方包"><a href="#卸载第三方包" class="headerlink" title="卸载第三方包"></a>卸载第三方包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm uninstall 包名称<br></code></pre></td></tr></table></figure><h2 id="初始化-package-json文件"><a href="#初始化-package-json文件" class="headerlink" title="初始化 package.json文件"></a>初始化 package.json文件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm init -y<br></code></pre></td></tr></table></figure><h2 id="一次性安装所有包"><a href="#一次性安装所有包" class="headerlink" title="一次性安装所有包"></a>一次性安装所有包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm install <br></code></pre></td></tr></table></figure><h2 id="查看当前的下包镜像源"><a href="#查看当前的下包镜像源" class="headerlink" title="查看当前的下包镜像源"></a>查看当前的下包镜像源</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm config get registry<br></code></pre></td></tr></table></figure><h2 id="将下包镜像源切换为淘宝镜像源"><a href="#将下包镜像源切换为淘宝镜像源" class="headerlink" title="将下包镜像源切换为淘宝镜像源"></a>将下包镜像源切换为淘宝镜像源</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm config set registry=https:<span class="hljs-comment">//registry.npm.taobao.org</span><br></code></pre></td></tr></table></figure><h2 id="检查源有没有更换成功"><a href="#检查源有没有更换成功" class="headerlink" title="检查源有没有更换成功"></a>检查源有没有更换成功</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm config get registry<br></code></pre></td></tr></table></figure><h2 id="全局安装-nrm"><a href="#全局安装-nrm" class="headerlink" title="全局安装 nrm"></a>全局安装 nrm</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm i nrm -g<br></code></pre></td></tr></table></figure><h2 id="查看所有可用的镜像源"><a href="#查看所有可用的镜像源" class="headerlink" title="查看所有可用的镜像源"></a>查看所有可用的镜像源</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">nrm ls<br></code></pre></td></tr></table></figure><h2 id="切换下包镜像源为-taobao"><a href="#切换下包镜像源为-taobao" class="headerlink" title="切换下包镜像源为 taobao"></a>切换下包镜像源为 taobao</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">nrm use taobao<br></code></pre></td></tr></table></figure><h2 id="分类下载包"><a href="#分类下载包" class="headerlink" title="分类下载包"></a>分类下载包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">npm i 包名 -D  开发依赖包(会被记录到 devDependencies)<br>npm i 包名     核心依赖包(会被记录到 dependencies 节点下)<br></code></pre></td></tr></table></figure><h2 id="安装全局包"><a href="#安装全局包" class="headerlink" title="安装全局包"></a>安装全局包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm i 包名 -g<br></code></pre></td></tr></table></figure><h2 id="卸载全局安装的包"><a href="#卸载全局安装的包" class="headerlink" title="卸载全局安装的包"></a>卸载全局安装的包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm uninstall 包名 -g<br></code></pre></td></tr></table></figure><h2 id="一个把-markdown-格式的文档转成-html-格式文件的工具包"><a href="#一个把-markdown-格式的文档转成-html-格式文件的工具包" class="headerlink" title="一个把 markdown 格式的文档转成 html 格式文件的工具包"></a>一个把 markdown 格式的文档转成 html 格式文件的工具包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">npm i -g i5ting_toc  全局安装<br>i5ting_toc -f xxx.md -o  使用全局命令并在浏览器打开转换好的html文件<br></code></pre></td></tr></table></figure><h2 id="登录到npm"><a href="#登录到npm" class="headerlink" title="登录到npm"></a>登录到npm</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm login   需要在下包镜像源为npm下执行命令<br></code></pre></td></tr></table></figure><h2 id="发布自己写的包"><a href="#发布自己写的包" class="headerlink" title="发布自己写的包"></a>发布自己写的包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">npm publish   在包的发布目录下面执行命令<br>npm unpublish 包名称 --force   删除已经发布的包<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JS</tag>
+      
+      <tag>语言</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JavaScript基础第05天笔记</title>
     <link href="/2021/02/09/JS%E5%9F%BA%E7%A1%80Day05/"/>
     <url>/2021/02/09/JS%E5%9F%BA%E7%A1%80Day05/</url>
