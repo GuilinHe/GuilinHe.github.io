@@ -17,25 +17,9 @@
   <meta name="description" content="学而时习之，不亦说乎！">
   <meta name="author" content="Alisa">
   <meta name="keywords" content="学习">
-  <title>node中模块的加载机制 - Heguilin的博客</title>
+  <title>标签 - MySQL - Heguilin的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
-
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
-    
-  
-
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  
 
 
 
@@ -63,7 +47,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 80vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -162,50 +146,17 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="node中模块的加载机制">
+            <span class="h2" id="subtitle" title="标签 - MySQL">
               
             </span>
 
             
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-21 20:26" pubdate>
-        2021年2月21日 晚上
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      502 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      5
-       分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
           </div>
 
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
           
         </div>
       </div>
@@ -214,103 +165,40 @@
 
   <main>
     
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+  <p class="h4">共计 1 篇文章</p>
+  <hr>
+  
+  
+    
       
+      <p class="h5">2021</p>
+    
+    <a href="/2021/02/24/SQL%20%E8%AF%AD%E5%8F%A5/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">SQL 语句</span>
+      <time style="float: right;">02-24</time>
+    </a>
+  
+</div>
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">node中模块的加载机制</h1>
-            
-            <div class="markdown-body">
-              <h1 id="node中模块的加载机制"><a href="#node中模块的加载机制" class="headerlink" title="node中模块的加载机制"></a>node中模块的加载机制</h1><h2 id="1-模块的加载机制"><a href="#1-模块的加载机制" class="headerlink" title="1. 模块的加载机制"></a>1. 模块的加载机制</h2><h3 id="1-1-模块优先从缓存中进行加载"><a href="#1-1-模块优先从缓存中进行加载" class="headerlink" title="1.1 模块优先从缓存中进行加载"></a>1.1 模块优先从缓存中进行加载</h3><p>模块在第一次加载后会被缓存, 如果每次调用 require(‘foo’) 都解析到同一文件，则返回相同的对象,不会导致模块的代码被执行多次</p>
-<h3 id="1-2-缓存的作用"><a href="#1-2-缓存的作用" class="headerlink" title="1.2 缓存的作用"></a>1.2 缓存的作用</h3><p>不论是 node.js 内置的核心模块，用户自定义的模块还是第三方模块，都有对应的缓存策略，提升模块的加载效率</p>
-<h2 id="2-内置模块的加载机制"><a href="#2-内置模块的加载机制" class="headerlink" title="2. 内置模块的加载机制"></a>2. 内置模块的加载机制</h2><h3 id="2-1-核心模块的加载机制"><a href="#2-1-核心模块的加载机制" class="headerlink" title="2.1 核心模块的加载机制"></a>2.1 核心模块的加载机制</h3><p>require() 总是会优先加载核心模块, 比如 require(‘http’) 始终返回内置的 HTTP 模块，即使有同名文件</p>
-<h2 id="3-自定义模块的加载机制"><a href="#3-自定义模块的加载机制" class="headerlink" title="3. 自定义模块的加载机制"></a>3. 自定义模块的加载机制</h2><h3 id="3-1-自定义模块的加载机制"><a href="#3-1-自定义模块的加载机制" class="headerlink" title="3.1 自定义模块的加载机制"></a>3.1 自定义模块的加载机制</h3><p>使用 require() 方法去加载自定义模块，必须指定 ‘/‘、 ‘./‘ 或 ‘../‘ 开头的路径，如果没有这个路径标识，node 会默认把它当作是一个核心模块或来自 node_modules 目录下的第三方模块</p>
-<h3 id="3-2-自定义文件模块"><a href="#3-2-自定义文件模块" class="headerlink" title="3.2 自定义文件模块"></a>3.2 自定义文件模块</h3><p>如果按确切的文件名没有找到模块，则 Node.js 会尝试带上 .js、 .json 或 .node 拓展名再加载</p>
-<h3 id="3-3-自定义目录模块"><a href="#3-3-自定义目录模块" class="headerlink" title="3.3 自定义目录模块"></a>3.3 自定义目录模块</h3><p>当传递一个目录标识符给 require () 方法时, 加载的顺序如下:</p>
-<ol>
-<li><p>在加载的目录下查找 package.json 的文件, 并寻找 main 属性作为 require 的入口</p>
-</li>
-<li><p>上述找不到,  Node.js 将会试图加载目录下的 index.js 或 index.node 文件</p>
-</li>
-</ol>
-<h2 id="4-第三方模块的加载机制"><a href="#4-第三方模块的加载机制" class="headerlink" title="4. 第三方模块的加载机制"></a>4. 第三方模块的加载机制</h2><h3 id="4-1-第三方模块的加载机制"><a href="#4-1-第三方模块的加载机制" class="headerlink" title="4.1 第三方模块的加载机制"></a>4.1 第三方模块的加载机制</h3><p>如果传递给 require() 的模块标识符不是一个核心模块，也没有以 ‘/‘ 、 ‘../‘ 或 ‘./‘ 开头，那么 Node.js 会从当前模块的父目录开始，尝试从它的/node_modules 目录里加载模块。如果还是没有找到，则移动到再上一层父目录，直到文件系统的根目录。</p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/node/">node</a>
-                    
-                  </div>
-                
+
+
+
               </div>
-              
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/02/24/SQL%20%E8%AF%AD%E5%8F%A5/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SQL 语句</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2021/02/21/npm%E5%91%BD%E4%BB%A4/">
-                        <span class="hidden-mobile">npm相关命令总结</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
             </div>
-
-            
-          </article>
+          </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
     
 
     
@@ -390,15 +278,9 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
