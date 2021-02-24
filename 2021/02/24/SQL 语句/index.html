@@ -17,7 +17,7 @@
   <meta name="description" content="学而时习之，不亦说乎！">
   <meta name="author" content="Alisa">
   <meta name="keywords" content="学习">
-  <title>node中模块的加载机制 - Heguilin的博客</title>
+  <title>Heguilin的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="node中模块的加载机制">
+            <span class="h2" id="subtitle" title="">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-21 20:26" pubdate>
-        2021年2月21日 晚上
+      <time datetime="2021-02-24 20:09" pubdate>
+        2021年2月24日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      502 字
+      725 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      9
        分钟
     </span>
   
@@ -224,42 +224,68 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">node中模块的加载机制</h1>
+            <h1 style="display: none"></h1>
             
             <div class="markdown-body">
-              <h1 id="node中模块的加载机制"><a href="#node中模块的加载机制" class="headerlink" title="node中模块的加载机制"></a>node中模块的加载机制</h1><h2 id="1-模块的加载机制"><a href="#1-模块的加载机制" class="headerlink" title="1. 模块的加载机制"></a>1. 模块的加载机制</h2><h3 id="1-1-模块优先从缓存中进行加载"><a href="#1-1-模块优先从缓存中进行加载" class="headerlink" title="1.1 模块优先从缓存中进行加载"></a>1.1 模块优先从缓存中进行加载</h3><p>模块在第一次加载后会被缓存, 如果每次调用 require(‘foo’) 都解析到同一文件，则返回相同的对象,不会导致模块的代码被执行多次</p>
-<h3 id="1-2-缓存的作用"><a href="#1-2-缓存的作用" class="headerlink" title="1.2 缓存的作用"></a>1.2 缓存的作用</h3><p>不论是 node.js 内置的核心模块，用户自定义的模块还是第三方模块，都有对应的缓存策略，提升模块的加载效率</p>
-<h2 id="2-内置模块的加载机制"><a href="#2-内置模块的加载机制" class="headerlink" title="2. 内置模块的加载机制"></a>2. 内置模块的加载机制</h2><h3 id="2-1-核心模块的加载机制"><a href="#2-1-核心模块的加载机制" class="headerlink" title="2.1 核心模块的加载机制"></a>2.1 核心模块的加载机制</h3><p>require() 总是会优先加载核心模块, 比如 require(‘http’) 始终返回内置的 HTTP 模块，即使有同名文件</p>
-<h2 id="3-自定义模块的加载机制"><a href="#3-自定义模块的加载机制" class="headerlink" title="3. 自定义模块的加载机制"></a>3. 自定义模块的加载机制</h2><h3 id="3-1-自定义模块的加载机制"><a href="#3-1-自定义模块的加载机制" class="headerlink" title="3.1 自定义模块的加载机制"></a>3.1 自定义模块的加载机制</h3><p>使用 require() 方法去加载自定义模块，必须指定 ‘/‘、 ‘./‘ 或 ‘../‘ 开头的路径，如果没有这个路径标识，node 会默认把它当作是一个核心模块或来自 node_modules 目录下的第三方模块</p>
-<h3 id="3-2-自定义文件模块"><a href="#3-2-自定义文件模块" class="headerlink" title="3.2 自定义文件模块"></a>3.2 自定义文件模块</h3><p>如果按确切的文件名没有找到模块，则 Node.js 会尝试带上 .js、 .json 或 .node 拓展名再加载</p>
-<h3 id="3-3-自定义目录模块"><a href="#3-3-自定义目录模块" class="headerlink" title="3.3 自定义目录模块"></a>3.3 自定义目录模块</h3><p>当传递一个目录标识符给 require () 方法时, 加载的顺序如下:</p>
-<ol>
-<li><p>在加载的目录下查找 package.json 的文件, 并寻找 main 属性作为 require 的入口</p>
-</li>
-<li><p>上述找不到,  Node.js 将会试图加载目录下的 index.js 或 index.node 文件</p>
+              <h1 id="SQL-语句"><a href="#SQL-语句" class="headerlink" title="SQL 语句"></a>SQL 语句</h1><h2 id="1-查询数据-select"><a href="#1-查询数据-select" class="headerlink" title="1.查询数据 select"></a>1.查询数据 select</h2><ol>
+<li><p>从指定表中查找所有列的数据: <code>SELECT * FROM 表名称</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">-- 从 users 表中查找所有列数据<br>-- select * <span class="hljs-keyword">from</span> users<br></code></pre></td></tr></table></figure></li>
+<li><p>从指定表中查找指定列的数据:<code>SELECT 列名称 FROM 表名称</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">-- 从 users 表中查找 username 和 password 列数据<br>-- select username,password <span class="hljs-keyword">from</span> users<br></code></pre></td></tr></table></figure>
+
+
 </li>
 </ol>
-<h2 id="4-第三方模块的加载机制"><a href="#4-第三方模块的加载机制" class="headerlink" title="4. 第三方模块的加载机制"></a>4. 第三方模块的加载机制</h2><h3 id="4-1-第三方模块的加载机制"><a href="#4-1-第三方模块的加载机制" class="headerlink" title="4.1 第三方模块的加载机制"></a>4.1 第三方模块的加载机制</h3><p>如果传递给 require() 的模块标识符不是一个核心模块，也没有以 ‘/‘ 、 ‘../‘ 或 ‘./‘ 开头，那么 Node.js 会从当前模块的父目录开始，尝试从它的/node_modules 目录里加载模块。如果还是没有找到，则移动到再上一层父目录，直到文件系统的根目录。</p>
+<h2 id="2-插入数据-insert"><a href="#2-插入数据-insert" class="headerlink" title="2.插入数据 insert"></a>2.插入数据 insert</h2><p>向指定的数据表中插入一条数据:   <code>INSERT INTO 表名称(列1, 列2, ...) VALUES(值1, 值2, ...)</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">-- 向 users 表中插入一条 username 为 Tomcat，password 为 <span class="hljs-number">920813</span> 的数据<br>-- insert into users (username,password) values(<span class="hljs-string">&#x27;Tomcat&#x27;</span>,<span class="hljs-string">&#x27;920813&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p><b>注意:</b> 多个列和值之间使用逗号隔开, 列和值的顺序要保持一致</p>
+<h2 id="3-更新数据-update"><a href="#3-更新数据-update" class="headerlink" title="3.更新数据 update"></a>3.更新数据 update</h2><p>更新数据表中的某一列或多列数据:   <code>UPDATE 表名称 SET 列1=值1, 列2=值2 WHERE 列名称=值;</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">-- 更新 users 表中 username 为 ls 的 password 为 <span class="hljs-number">111111</span><br>-- update users set password=<span class="hljs-string">&#x27;111111&#x27;</span> where username=<span class="hljs-string">&#x27;ls&#x27;</span>;<br><br>-- 同时更新 id 为 <span class="hljs-number">3</span> 这条数据的 password 为 <span class="hljs-number">111111</span>，status 为 <span class="hljs-number">1</span><br>-- update users set password=<span class="hljs-string">&#x27;111111&#x27;</span>,status=<span class="hljs-number">1</span> where id=<span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+<p><b>注意:</b> SET 后多列数据更新使用逗号隔开, WHERE 后面跟的条件不能省略</p>
+<h2 id="4-删除数据-delete"><a href="#4-删除数据-delete" class="headerlink" title="4.删除数据 delete"></a>4.删除数据 delete</h2><p>删除数据表中的某一行或多行数据：  <code>DELETE FROM 表名称 WHERE 列名称=值;</code></p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">-- 删除 id 为 <span class="hljs-number">3</span> 的用户数据<br>-- <span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> users where id=<span class="hljs-number">3</span>;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="5-where-子句的作用"><a href="#5-where-子句的作用" class="headerlink" title="5.where 子句的作用"></a>5.where 子句的作用</h2><p>如果需要有条件的从表中选取数据, 可以使用 WHERE 子句添加到 SQL 语句的末尾</p>
+<p>  例如: </p>
+<p>   <code>SELECT * FROM 表名称 WHERE 列名称 运算符 值</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js">-- 查找 users 中 id 大于 <span class="hljs-number">2</span> 的数据<br>-- select * <span class="hljs-keyword">from</span> users where id&gt;<span class="hljs-number">2</span>;<br><br>-- 查找 users 中 password 含 <span class="hljs-number">3</span> 的数据<br>-- select * <span class="hljs-keyword">from</span> users where password like <span class="hljs-string">&#x27;%3%&#x27;</span>;<br><br>-- 查找 users 中 status 为 <span class="hljs-number">0</span> 的数据<br>-- select * <span class="hljs-keyword">from</span> users where status=<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+<p>常见的运算符：</p>
+<p>   (1) &gt; 和 &gt;= </p>
+<p>   (2) &lt; 和 &lt;=</p>
+<p>   (3) != 或 &lt;&gt;</p>
+<p>   (4) =</p>
+<p>   (5) BETWEEN</p>
+<p>   (6) LIKE</p>
+<p>AND 和 OR 运算符</p>
+<p>   可以在 WHERE 子句中把多个条件结合起来, AND 表示并且, OR 表示或者的意思</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">-- 使用 and 查找 status=<span class="hljs-number">0</span> 并且 id&gt;<span class="hljs-number">2</span>  的数据<br>-- select * <span class="hljs-keyword">from</span> users where status=<span class="hljs-number">0</span> and id&gt;<span class="hljs-number">2</span><br><br>-- 使用 or 查找 status=<span class="hljs-number">0</span> 或者 id&gt;<span class="hljs-number">2</span>  的数据<br>-- select * <span class="hljs-keyword">from</span> users where status=<span class="hljs-number">0</span> or id&gt;<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="6-order-by-子句的作用"><a href="#6-order-by-子句的作用" class="headerlink" title="6.order by 子句的作用"></a>6.order by 子句的作用</h2><ol>
+<li><p>使用 ORDER BY 子句对结果进行排序</p>
+<p><code>SELECT * FROM users ORDER BY status DESC;</code></p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">-- 根据 status 升序排列<br>-- select * <span class="hljs-keyword">from</span> users order by status asc<br><br>-- 查找 id&gt;<span class="hljs-number">1</span> 且根据 id 降序排列<br>-- select * <span class="hljs-keyword">from</span> users where id&gt;<span class="hljs-number">1</span> order by id desc<br></code></pre></td></tr></table></figure>
+<p>   默认的排序方式为升序 ASC, 如果使用降序可以添加 DESC 关键字</p>
+<ol start="2">
+<li><p>多重排序规则</p>
+<p><code>SELECT 列名称 FROM 表名称 ORDER BY 列名称 [排序规则], 列名称 [排序规则]</code></p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">-- status 升序，username 降序<br>select * <span class="hljs-keyword">from</span> users order by status asc,username desc<br></code></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>注意</p>
+<p>同时使用 order by 和 where子句时, 应该让 order by 位于 where 之后, 否则将会产生错误</p>
+</li>
+</ol>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/node/">node</a>
-                    
-                  </div>
                 
               </div>
               
@@ -270,18 +296,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/24/SQL%20%E8%AF%AD%E5%8F%A5/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/21/npm%E5%91%BD%E4%BB%A4/">
-                        <span class="hidden-mobile">npm相关命令总结</span>
+                      <a href="/2021/02/21/node%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
+                        <span class="hidden-mobile">node中模块的加载机制</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
