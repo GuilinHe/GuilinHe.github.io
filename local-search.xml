@@ -4,7 +4,34 @@
   
   
   <entry>
-    <title>SQL 语句</title>
+    <title>在 Express 中使用 Session 认证</title>
+    <link href="/2021/02/26/session/"/>
+    <url>/2021/02/26/session/</url>
+    
+    <content type="html"><![CDATA[<h2 id="在-Express-中使用-Session-认证"><a href="#在-Express-中使用-Session-认证" class="headerlink" title="在 Express 中使用 Session 认证"></a>在 Express 中使用 Session 认证</h2><ul><li>安装</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm i express-session<br></code></pre></td></tr></table></figure><ul><li>使用</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 1. 导入 session 中间件</span><br><span class="hljs-keyword">const</span> session = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express-session&#x27;</span>)<br><span class="hljs-comment">// 2. 配置 session 中间件</span><br>app.use(session(&#123;<br>    secret: <span class="hljs-string">&#x27;keyboard cat&#x27;</span>,<br>    resave: <span class="hljs-literal">false</span>,<br>    saveUninitialized: <span class="hljs-literal">true</span>,<br>&#125;))<br><span class="hljs-comment">// 向 session 中存数据</span><br>req.session.user = req.body; <span class="hljs-comment">// 将用户的信息存储到 session 中</span><br>req.session.isLogin = <span class="hljs-literal">true</span>; <span class="hljs-comment">// 将用户的登录状态存储到 session 中</span><br><span class="hljs-comment">// 从 session 中取数据</span><br>req.session.isLogin<br>username: req.session.user.username<br><span class="hljs-comment">// 清空 session 信息</span><br>req.session.destroy()<br></code></pre></td></tr></table></figure><p><a href="https://www.npmjs.com/package/express-session">更多用法</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>笔记</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Express</tag>
+      
+      <tag>框架</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SQL语句</title>
     <link href="/2021/02/24/SQL%20%E8%AF%AD%E5%8F%A5/"/>
     <url>/2021/02/24/SQL%20%E8%AF%AD%E5%8F%A5/</url>
     
