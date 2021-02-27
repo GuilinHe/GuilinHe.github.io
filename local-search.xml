@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>JWT 认证机制</title>
+    <link href="/2021/02/27/JWT-%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6/"/>
+    <url>/2021/02/27/JWT-%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6/</url>
+    
+    <content type="html"><![CDATA[<h1 id="JWT-认证机制"><a href="#JWT-认证机制" class="headerlink" title="JWT 认证机制"></a>JWT 认证机制</h1><ul><li><p>基本概念</p><p>JWT（英文全称：JSON Web Token）是目前最流行的跨域认证解决方案。</p></li><li><p>工作原理</p><p>工作原理总结：用户的信息通过 Token 字符串的形式，保存在客户端浏览器中。服务器通过还原 Token 字符串的形式来认证用户的身份。</p></li><li><p>安装 JWT 相关的包</p><p>同时安装两个JWT相关的包</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm install jsonwebtoken express-jwt<br></code></pre></td></tr></table></figure><ul><li><p>jsonwebtoken 用于生成 JWT 字符串 </p></li><li><p>express-jwt 用于将 JWT 字符串解析还原成 JSON 对象</p></li></ul></li><li><p>使用</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 1. 引入 jsonwebtoken express-jwt 模块</span><br><span class="hljs-keyword">const</span> JWT = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;jsonwebtoken&#x27;</span>)<br><span class="hljs-keyword">const</span> JWTparser = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express-jwt&#x27;</span>)<br><span class="hljs-comment">// 2. 定义 secret 密钥，建议将密钥命名为 secretKey</span><br><span class="hljs-keyword">const</span> secretKey = <span class="hljs-string">&#x27;jwtkeyjdhdh-secret&#x27;</span><br><span class="hljs-comment">// 3. 调用 jwt.sign() 方法生成 JWT 字符串</span><br><span class="hljs-keyword">const</span> token = JWT.sign(&#123; <span class="hljs-attr">username</span>: userinfo.username &#125;, secretKey, &#123; <span class="hljs-attr">expiresIn</span>: <span class="hljs-string">&#x27;1h&#x27;</span> &#125;)<br><span class="hljs-comment">// 4. 注册将 JWT 字符串解析还原成 JSON 对象的中间件</span><br>app.use(expressJwt(&#123;<br>    algorithms: [<span class="hljs-string">&#x27;HS256&#x27;</span>],<br>    secret: secretKey,<br>    credentialsRequired: <span class="hljs-literal">true</span><br>&#125;).unless(&#123; <span class="hljs-attr">path</span>: [<span class="hljs-string">&#x27;/api&#x27;</span>] &#125;));<br><span class="hljs-comment">// 5. 使用 req.user 获取用户信息</span><br><span class="hljs-built_in">console</span>.log(req.user);<br><span class="hljs-comment">// 6. 使用全局错误处理中间件，捕获解析 JWT 失败后产生的错误</span><br> <span class="hljs-keyword">if</span> (err.name === <span class="hljs-string">&#x27;UnauthorizedError&#x27;</span>) &#123;<br>        <span class="hljs-keyword">return</span> res.send(&#123;<br>            status: <span class="hljs-number">401</span>,<br>            message: <span class="hljs-string">&#x27;无效的token&#x27;</span><br>        &#125;)<br>    &#125;<br></code></pre></td></tr></table></figure><p><a href="https://www.npmjs.com/package/jsonwebtoken">官方文档jsonwebtoken</a></p><p><a href="https://www.npmjs.com/package/express-jwt">官方文档express-jwt</a></p></li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>在 Express 中使用 Session 认证</title>
     <link href="/2021/02/26/session/"/>
     <url>/2021/02/26/session/</url>
