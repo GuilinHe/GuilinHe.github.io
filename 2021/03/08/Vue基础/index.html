@@ -17,7 +17,7 @@
   <meta name="description" content="学而时习之，不亦说乎！">
   <meta name="author" content="Alisa">
   <meta name="keywords" content="学习">
-  <title>在 Express 中使用 Session 认证 - Heguilin的博客</title>
+  <title>Vue - Heguilin的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="在 Express 中使用 Session 认证">
+            <span class="h2" id="subtitle" title="Vue">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-26 20:23" pubdate>
-        2021年2月26日 晚上
+      <time datetime="2021-03-08 20:02" pubdate>
+        2021年3月8日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      116 字
+      606 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      8
        分钟
     </span>
   
@@ -224,19 +224,66 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">在 Express 中使用 Session 认证</h1>
+            <h1 style="display: none">Vue</h1>
             
             <div class="markdown-body">
-              <h2 id="在-Express-中使用-Session-认证"><a href="#在-Express-中使用-Session-认证" class="headerlink" title="在 Express 中使用 Session 认证"></a>在 Express 中使用 Session 认证</h2><ul>
-<li>安装</li>
+              <h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><h2 id="1、Vue介绍"><a href="#1、Vue介绍" class="headerlink" title="1、Vue介绍"></a>1、Vue介绍</h2><h3 id="1-1、基础介绍"><a href="#1-1、基础介绍" class="headerlink" title="1.1、基础介绍"></a>1.1、基础介绍</h3><ul>
+<li>概念：渐进式的 javascript 框架</li>
+<li>版本：2.6</li>
+<li>作者：尤雨溪</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm i express-session<br></code></pre></td></tr></table></figure>
-<ul>
-<li>使用</li>
+<h3 id="1-2、基础使用"><a href="#1-2、基础使用" class="headerlink" title="1.2、基础使用"></a>1.2、基础使用</h3><ol>
+<li><p>安装 Vue.js</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 生产环境版本，优化了尺寸和速度 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/vue&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>准备一个标签用来放数据</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;app&quot;</span>&gt;</span><br>  ...<br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>实例化一个Vue对象</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;<br>        el: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>        data: &#123;<br>          msg: <span class="hljs-string">&#x27;Hello Vue&#x27;</span><br>        &#125;<br>      &#125;);<br></code></pre></td></tr></table></figure>
+<h2 id="2、基础指令"><a href="#2、基础指令" class="headerlink" title="2、基础指令"></a>2、基础指令</h2><h3 id="2-1、指令介绍"><a href="#2-1、指令介绍" class="headerlink" title="2.1、指令介绍"></a>2.1、指令介绍</h3><p>指令本质上就是自定义属性；</p>
+<h3 id="2-2、常见指令"><a href="#2-2、常见指令" class="headerlink" title="2.2、常见指令"></a>2.2、常见指令</h3><ul>
+<li><p>v-html(渲染html)</p>
+</li>
+<li><p>v-text(渲染纯文本)</p>
+</li>
+<li><p>v-bind(属性绑定)</p>
+</li>
+<li><p>v-once(只绑定一次数据)</p>
+</li>
+<li><p>v-on(事件绑定)</p>
+</li>
+<li><p>v-model(双向绑定)</p>
+</li>
+<li><p>v-pre(原文输出)</p>
+</li>
+<li><p>v-cloak(解决页面闪烁问题)</p>
+</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 1. 导入 session 中间件</span><br><span class="hljs-keyword">const</span> session = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;express-session&#x27;</span>)<br><span class="hljs-comment">// 2. 配置 session 中间件</span><br>app.use(session(&#123;<br>    secret: <span class="hljs-string">&#x27;keyboard cat&#x27;</span>,<br>    resave: <span class="hljs-literal">false</span>,<br>    saveUninitialized: <span class="hljs-literal">true</span>,<br>&#125;))<br><span class="hljs-comment">// 向 session 中存数据</span><br>req.session.user = req.body; <span class="hljs-comment">// 将用户的信息存储到 session 中</span><br>req.session.isLogin = <span class="hljs-literal">true</span>; <span class="hljs-comment">// 将用户的登录状态存储到 session 中</span><br><span class="hljs-comment">// 从 session 中取数据</span><br>req.session.isLogin<br>username: req.session.user.username<br><span class="hljs-comment">// 清空 session 信息</span><br>req.session.destroy()<br></code></pre></td></tr></table></figure>
-<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/express-session">更多用法</a></p>
-
+<h2 id="3、事件相关"><a href="#3、事件相关" class="headerlink" title="3、事件相关"></a>3、事件相关</h2><h3 id="3-1、事件绑定"><a href="#3-1、事件绑定" class="headerlink" title="3.1、事件绑定"></a>3.1、事件绑定</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:</span>事件类型=<span class="hljs-string">&#x27;事件函数&#x27;</span>&gt;</span>点击<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&#x27;事件函数&#x27;</span>&gt;</span>点击1<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="3-2、事件传参"><a href="#3-2、事件传参" class="headerlink" title="3.2、事件传参"></a>3.2、事件传参</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:</span>事件类型=<span class="hljs-string">&#x27;事件函数(实参)&#x27;</span>&gt;</span>点击<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> vm = <span class="hljs-keyword">new</span> Vue(&#123;<br>            el: <span class="hljs-string">&#x27;#app&#x27;</span>,<br>            data: &#123;<br>                num: <span class="hljs-number">0</span><br>            &#125;,<br>            methods: &#123;<br>                changeNum: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">形参</span>) </span>&#123;<br>                    <span class="hljs-built_in">this</span>.num++<br>                &#125;<br>            &#125;<br>        &#125;)<br></code></pre></td></tr></table></figure>
+<p><b>注意</b>：不传参数时，形参默认就是事件对象，传参时，事件对象要显示传递，与形参位置一一对应；</p>
+<h3 id="3-3、事件修饰符"><a href="#3-3、事件修饰符" class="headerlink" title="3.3、事件修饰符"></a>3.3、事件修饰符</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">v-on:</span>事件类型<span class="hljs-attr">.</span>修饰符=<span class="hljs-string">&#x27;事件函数&#x27;</span>&gt;</span>点击<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>常用修饰符：</p>
+<p>.stop 阻止冒泡</p>
+<p>.prevent 阻止默认行为</p>
+<p>.self 自身触发</p>
+<p>.capture 捕获阶段触发</p>
+<p>…</p>
+<p>按键修饰符：</p>
+<p>.enter</p>
+<p>.delete</p>
+<p>…</p>
+<p>自定义修饰符</p>
+<p>Vue.config.keyCodes.f1 = 112</p>
+<h2 id="4、样式处理"><a href="#4、样式处理" class="headerlink" title="4、样式处理"></a>4、样式处理</h2><p>Class:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;&#123;active: isActive,error: isError&#125;&quot;</span>&gt;</span><br>      测试样式<br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>active,error为属性名，isActive，isError为变量值(值为布尔型，决定是不是用该属性)<br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:class</span>=<span class="hljs-string">&quot;[activeClass, errorClass,&#x27;hehe&#x27;,&#x27;heihei&#x27;]&quot;</span>&gt;</span>测试样式<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>activeClass,errorClass为变量值(同时也是属性名)<br></code></pre></td></tr></table></figure>
+<p>Style:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">&#x27;&#123;border: borderStyle, width: widthStyle, height: heightStyle&#125;&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>borderStyle,widthStyle,heightStyle为变量值(属性值)<br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">v-bind:style</span>=<span class="hljs-string">&#x27;[objStyles, overrideStyles]&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>objStyles，overrideStyles为变量值，是一个对象<br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -253,9 +300,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%A1%86%E6%9E%B6/">框架</a>
+                      <a class="hover-with-bg" href="/tags/vue/">vue</a>
                     
-                      <a class="hover-with-bg" href="/tags/Express/">Express</a>
+                      <a class="hover-with-bg" href="/tags/%E6%A1%86%E6%9E%B6/">框架</a>
                     
                   </div>
                 
@@ -268,18 +315,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/27/JWT-%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JWT 认证机制</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/24/SQL%20%E8%AF%AD%E5%8F%A5/">
-                        <span class="hidden-mobile">SQL语句</span>
+                      <a href="/2021/02/27/JWT-%E8%AE%A4%E8%AF%81%E6%9C%BA%E5%88%B6/">
+                        <span class="hidden-mobile">JWT 认证机制</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
